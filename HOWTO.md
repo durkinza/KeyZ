@@ -1,7 +1,7 @@
 # How To Compile
 First download the repo.
 
-Using a terminal, move into the keyFile directory.
+Using a terminal, move into the directory.
 
 ### With make installed
 Compiling with make is easy, just run 
