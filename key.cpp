@@ -22,7 +22,6 @@ int makeFile (char * fn, int k, int v, int p);
 int openFile (char * fn, int &k, int &v, int &p);
 int getData (char * fn, int pfd, char * key, int q, int k, int v, int p);
 int setData (char * fn, int pfd, char * key, int noOver, int q, int k, int v, int p);
-unsigned int hash (const char *str);
 
 int d = 0; // global debug option
 
