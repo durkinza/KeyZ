@@ -1,0 +1,76 @@
+KEY(1)		          BSD General Commands Manual                           KEY(1)
+
+NAME
+     key -- save key/value pairs by key in file
+
+SYNOPSIS
+     key {-s | -g}[-hknoqpv] file key
+     key -nkvp file
+
+DESCRIPTION
+     This utility takes a key from the argument list and a value of
+     stdin and stores them as a key/value pair into a file according
+     to the options supplied.  If file does not exist then it is
+     created and maximum key size, value size, and maximum number of
+     pairs that can be saved.  This information is saved in the file
+     when the file is created.  If the file already exists then values
+     provided for -k, -p, and -v options have no effect and neither do
+     the default values for these parameters instead the values are
+     read from the file.  Unused keys supplied to the key command are
+     ignored.
+
+     -g     Get the value associated with the given key from the file.  The key
+            is truncated to the maximum size specified by the -k option.
+
+     -h     Print the usage message.
+
+     -k NUM Set the maximum size of a key in characters.   The default is 32.
+            Keys will be truncated to this length before use.
+
+     -n     Display the maximum number of key/value pairs spaces available, 
+            the maximum size of a key, and the maximum size of a value.  
+            The values are reported after all other actions have been taken.
+
+     -o     Set no overwrite mode.  Key value pairs are normally allowed to 
+            overwrite previous key/value pairs with matching keys.   This option
+            prevents overwriting from occurring.
+
+     -p NUM Set the maximum number of key/value pairs able to be stored at once.
+            The default is 331.
+
+     -q     Quiet mode.  Error messages of trying to overwrite in no-overwrite mode
+            and reading a value associated with a key that is not in the file
+            are not displayed.
+
+     -s     Save the key/value in the file.
+
+     -v NUM Set the maximum size of a value in characters.  Values will be 
+            truncated to this length before storage.  The default is 64.
+
+EXIT STATUS
+     The key utility exits 0 on success, and 1 if an error occurs.
+
+EXAMPLES
+     The command:
+
+        key -k 50 -v 1000 -p 1031 poetry
+   
+     creates a key/value file.
+
+        key -n poetry
+
+     returns information about the key/value file.
+
+        cat Shakespeare/sonnetX | key -s  poetry "Shakespeare's Tenth Sonnet"
+
+     saves the sonnet in the poetry file.   While this:
+
+        key -g poetry "Shakespeare's Tenth Sonnet"
+
+     retrieves the sonnet.
+
+
+SEE ALSO
+
+STANDARDS
+

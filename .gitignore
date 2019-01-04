@@ -1,0 +1,4 @@
+*.KEYZ
+*.o
+key
+.DS_Store
